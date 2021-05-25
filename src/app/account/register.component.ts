@@ -3,12 +3,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AccountService, AlertService } from '@app/services';
+import { AccountService, AlertService } from '@app/_services';
 import { ConfirmedValidator } from './confirmed.validator';
 
 @Component({ templateUrl: 'register.component.html' })
 export class RegisterComponent implements OnInit {
-    Types: any = ['Restaurante', 'Bar', 'Café', 'Discoteca'];
+    types: string[];
     form: FormGroup;
     loading = false;
     submitted = false;
@@ -19,12 +19,13 @@ export class RegisterComponent implements OnInit {
         private router: Router,
         private accountService: AccountService,
         private alertService: AlertService
-    ) { }
+    ) { this.types = ['Restaurante', 'Bar', 'Café', 'Discoteca']; }
 
     ngOnInit() {
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
             address: ['', Validators.required],
+            type: ['', Validators.required],
             city: ['', [Validators.required, Validators.pattern(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)]],
             phone: ['', [Validators.required, Validators.pattern(/^(?:[0-9] ?){9,14}[0-9]$/)]],
             nit: ['', [Validators.required, Validators.pattern(/^(?:[0-9] ?){9,14}[0-9]$/)]],
@@ -32,9 +33,7 @@ export class RegisterComponent implements OnInit {
             email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
             password: ['', [Validators.minLength(8), Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
             password_check: ['', [Validators.required]]
-        },
-            { validator: ConfirmedValidator('password', 'password_check') }
-        );
+        }, { validator: ConfirmedValidator('password', 'password_check') });
     }
 
     // convenience getter for easy access to form fields
