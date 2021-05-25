@@ -1,0 +1,33 @@
+.app-header {
+    background: #1a1b1f;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    height: auto;
+    justify-content: space-between;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.brand {
+    display: flex;
+    margin: 15px 0 0 0;
+}
+
+.logo-img {
+    margin: auto;
+    margin-bottom: 20px;
+    height: 60px;
+    width: 40px;
+}
+
+.title {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 20px 10px auto 10px;
+    font-size: larger;
+}
+
+.items{
+    color: #ffffff;
+}

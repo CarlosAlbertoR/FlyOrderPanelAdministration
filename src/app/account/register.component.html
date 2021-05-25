@@ -14,6 +14,7 @@
                 <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
                 <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
                     <div *ngIf="f.address.errors.required">Dirección es requerida</div>
+                    <div *ngIf="f.address.errors.minlength">Dirección invalida</div>                    
                 </div>
             </div>
             <div class="form-group">
@@ -33,6 +34,7 @@
                 <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
                 <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
                     <div *ngIf="f.city.errors.required">Ciudad es requerida</div>
+                    <div *ngIf="f.city.errors.pattern">Ciudad invalida</div>
                 </div>
             </div>
             <div class="form-group">
@@ -40,6 +42,7 @@
                 <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
                 <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
                     <div *ngIf="f.phone.errors.required">Teléfono es requerido</div>
+                    <div *ngIf="f.phone.errors.pattern">Teléfono invalido</div>
                 </div>
             </div>
             <div class="form-group">
@@ -47,6 +50,7 @@
                 <input type="text" formControlName="nit" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nit.errors }" />
                 <div *ngIf="submitted && f.nit.errors" class="invalid-feedback">
                     <div *ngIf="f.nit.errors.required">NIT es requerido</div>
+                    <div *ngIf="f.nit.errors.pattern">NIT invalido</div>
                 </div>
             </div>
             <div class="form-group">
@@ -54,6 +58,7 @@
                 <input type="text" formControlName="nameAdmin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nameAdmin.errors }" />
                 <div *ngIf="submitted && f.nameAdmin.errors" class="invalid-feedback">
                     <div *ngIf="f.nameAdmin.errors.required">Nombre del administrador es requerido</div>
+                    <div *ngIf="f.nameAdmin.errors.pattern">Nombre de administrador invalido</div>
                 </div>
             </div>
             <div class="form-group">
@@ -61,6 +66,7 @@
                 <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Correo electrónico es requerido</div>
+                    <div *ngIf="f.email.errors.pattern">Correo electrónico invalido</div>
                 </div>
             </div>
             <div class="form-group">
@@ -69,6 +75,7 @@
                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Contraseña es requerida</div>
                     <div *ngIf="f.password.errors.minlength">La contraseña debe tener al menos 8 caracteres</div>
+                    <div *ngIf="f.password.errors.pattern">La contraseña debe tener al menos una mayúscula, una minúscula y un número</div>
                 </div>
             </div>
             <div class="form-group">
@@ -84,7 +91,7 @@
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Registrame
                 </button>
-                <a routerLink="../login" class="btn btn-link">Cancel</a>
+                <a routerLink="../login" class="btn btn-link">Ya tengo cuenta</a>
             </div>
         </form>
     </div>

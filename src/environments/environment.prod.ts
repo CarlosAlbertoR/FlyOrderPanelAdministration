@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:4000'
+    apiLoginUrl: 'https://fly-order-login.herokuapp.com'
 };
